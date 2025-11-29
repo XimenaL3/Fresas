@@ -1,0 +1,153 @@
+/* ===== FONDO ESTILO PINKBERRY ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ff9acb, #ffd4e9, #fff0f7);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título */
+.titulo {
+    margin-top: 30px;
+    font-size: 32px;
+    color: #ff2f89;
+    text-shadow: 0 2px 8px rgba(255, 0, 116, 0.3);
+    font-weight: 900;
+}
+
+/* Botones superiores */
+.top-buttons {
+    width: 90%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-agregar,
+.btn-regresar {
+    background: #ffffffdd;
+    backdrop-filter: blur(5px);
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 2px solid #ff77b7;
+    font-weight: bold;
+    color: #d81b60;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-agregar:hover,
+.btn-regresar:hover {
+    transform: scale(1.07);
+    box-shadow: 0px 8px 20px rgba(255, 0, 119, 0.35);
+}
+
+/* Alerta */
+.alerta {
+    background: #ffe6ed;
+    padding: 12px;
+    margin-top: 18px;
+    width: 80%;
+    border-radius: 10px;
+    color: #b30055;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ===== TABLA DE INGREDIENTES ===== */
+.tabla-contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffffdd;
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.tabla thead {
+    background: #ff77b7;
+    color: white;
+}
+
+.tabla th,
+.tabla td {
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.tabla tr:nth-child(even) {
+    background: #ffe9f4;
+}
+
+.tabla tr:hover {
+    background: #ffd3eb;
+}
+
+/* Imagen */
+.tabla img {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Estatus */
+.status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.activo {
+    background: #c8ffd4;
+    color: #008f39;
+}
+
+.inactivo {
+    background: #ffd0d0;
+    color: #9f0000;
+}
+
+/* Acciones */
+.acciones a {
+    padding: 8px 14px;
+    margin: 3px;
+    font-size: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-editar {
+    background: #fff3c4;
+    border: 2px solid #e0b100;
+    color: #916f00;
+}
+
+.btn-eliminar {
+    background: #ffd0d0;
+    border: 2px solid #ff4d6d;
+    color: #b30021;
+}
+
+.btn-editar:hover {
+    background: #ffe48b;
+}
+
+.btn-eliminar:hover {
+    background: #ff9a9a;
+}

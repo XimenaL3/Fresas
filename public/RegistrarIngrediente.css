@@ -1,0 +1,126 @@
+/* ===== FONDO ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255,182,193,0.85), rgba(255,240,247,0.5), white),
+        radial-gradient(circle at 80% 80%, rgba(255,105,155,0.65), rgba(255,200,220,0.4), white),
+        linear-gradient(135deg, #ff6fa5, #ffc2d7, #ffffff);
+    background-blend-mode: soft-light, overlay, normal;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CONTENEDOR */
+.registro-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CAJA PRINCIPAL */
+.registro-box {
+    background: #ffffffee;
+    padding: 28px;
+    width: 700px;
+    border-radius: 20px;
+    border: 2px solid #ff8abd;
+    box-shadow: 0px 10px 28px rgba(255, 110, 160, 0.28);
+}
+
+/* TITULO */
+.registro-box h2 {
+    text-align: center;
+    color: #ff4f9b;
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+
+/* SECCION */
+.seccion h3 {
+    color: #d63384;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+/* FILAS */
+.fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+/* INPUT GROUP */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #d63384;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #ffb3d9;
+    background: #fff6fa;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.input-group input:focus {
+    border-color: #ff66b2;
+    background: #ffe6f2;
+    outline: none;
+}
+
+/* ALERTA */
+.alerta {
+    background: #ffe6ed;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    color: #b30055;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* BOTÓN */
+.btn-guardar {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff66b2, #ff3385);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.btn-guardar:hover {
+    background: linear-gradient(135deg, #ff3385, #ff0073);
+}
+
+/* LINK */
+.links {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.links a {
+    color: #ff4fa3;
+    text-decoration: none;
+}

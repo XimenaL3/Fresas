@@ -1,0 +1,146 @@
+/* ============================
+   ESTILO TIENDA DE POSTRES
+   Rosa — Moderno — Elegante
+=============================*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    color: #4a2c2c;
+
+    /* ===== FONDO ÓLEO — PINCELADAS ROSA ===== */
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255,182,193,0.9) 0%, rgba(255,240,247,0.6) 40%, rgba(255,255,255,1) 90%),
+        radial-gradient(circle at 80% 80%, rgba(255,105,155,0.75) 0%, rgba(255,200,220,0.5) 45%, rgba(255,255,255,1) 90%),
+        linear-gradient(135deg, #ff6fa5, #ffc2d7, #ffffff);
+    
+    background-blend-mode: soft-light, overlay, normal;
+}
+
+/* ===== CONTENEDOR CENTRAL ===== */
+.login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Quitamos la imagen y dejamos solo el fondo artístico */
+    background: transparent;
+}
+
+/* ===== CAJA DEL LOGIN ===== */
+.login-box {
+    background: #ffffffdd;
+    padding: 35px;
+    width: 380px;
+    border-radius: 25px;
+    border: 3px solid #ff8abd;
+    box-shadow: 0px 10px 35px rgba(255, 110, 160, 0.35);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.9s ease;
+}
+
+.login-box h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #ff4f9b;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 0px 2px 4px rgba(255, 100, 160, 0.4);
+}
+
+/* ===== ENTRADAS ===== */
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #d63384;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #ffb3d9;
+    background: #fff6fa;
+    font-size: 15px;
+    transition: all 0.25s ease;
+}
+
+.input-group input:focus {
+    border-color: #ff66b2;
+    background: #ffe6f2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+}
+
+/* ===== BOTÓN PRINCIPAL ===== */
+.btn-login {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    background: linear-gradient(135deg, #ff66b2, #ff3385);
+    color: white;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 0px 8px 20px rgba(255, 70, 150, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 12px 25px rgba(255, 60, 140, 0.55);
+}
+
+/* ===== LINKS ===== */
+.links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.links a {
+    display: block;
+    margin: 6px 0;
+    color: #ff4fa3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.links a:hover {
+    text-decoration: underline;
+    color: #cc006e;
+}
+
+/* ===== ALERTA ===== */
+.alerta {
+    background: #ffe6ed;
+    padding: 12px;
+    border-left: 5px solid #ff4f9b;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    text-align: center;
+    color: #b30055;
+    font-weight: 600;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
