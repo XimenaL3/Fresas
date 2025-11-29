@@ -8,14 +8,12 @@ require_once "../includes/conexion.php";
 $mensaje = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar"])) {
-
     $idPersona = $_SESSION["idPersona"] ?? 0;
     $idPlatillo = intval($_POST["agregar"]);
 
     if ($idPersona == 0) {
         $mensaje = "Debes iniciar sesión.";
     } else {
-        // Llamar procedimiento
         $stmt = $conn->prepare("CALL AgregarPlatilloCarrito(?, ?)");
         $stmt->bind_param("ii", $idPersona, $idPlatillo);
 
@@ -31,11 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar"])) {
 // -------------------------------
 // OBTENER PLATILLOS
 // -------------------------------
-$sql = "SELECT idPlatillo, Platillo, PrecioVenta, Imagen 
-        FROM VistaPlatillos 
-        GROUP BY idPlatillo";
+$sql = "SELECT idPlatillo, Platillo, PrecioVenta, Imagen FROM VistaPlatillos GROUP BY idPlatillo";
 $result = $conn->query($sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -47,40 +42,35 @@ $result = $conn->query($sql);
 </head>
 <body>
 
-<!-- BOTONES SUPERIORES -->
-<div class="top-bar">
-    <a href="Carrito.php" class="btn-carrito">Ir al carrito 🛒</a>
-    <a href="RegistrarPlatillo.php" class="btn-agregar">Agregar platillo ➕</a>
+<h1 class="titulo">Platillos</h1>
+
+<div class="top-buttons">
+    <a href="Carrito.php" class="btn-regresar">Ir al carrito</a>
+    <a href="RegistrarPlatillo.php" class="btn-agregar">Agregar platillo</a>
+    <a href="DashboardAdministradores.php" class="btn-regresar">Volver</a>
 </div>
 
-<!-- ALERTA -->
 <?php if (!empty($mensaje)): ?>
-    <div id="alerta" class="alerta-activa"><?php echo $mensaje; ?></div>
+    <div id="alerta" class="alerta"><?php echo $mensaje; ?></div>
 <?php endif; ?>
 
-<!-- CONTENEDOR DE TARJETAS -->
 <div class="platillos-container">
-
-<?php while ($row = $result->fetch_assoc()): ?>
-    <form class="card" method="POST">
-        <img src="Imagenes/<?php echo $row['Imagen']; ?>" alt="Platillo">
-
-        <h4><?php echo $row['Platillo']; ?></h4>
-        <p>$<?php echo number_format($row['PrecioVenta'], 2); ?></p>
-
-        <button type="submit" name="agregar" value="<?php echo $row['idPlatillo']; ?>" class="boton-add">
-            Agregar al carrito
-        </button>
-    </form>
-<?php endwhile; ?>
-
+    <?php while ($row = $result->fetch_assoc()): ?>
+        <form class="card" method="POST" onclick="this.submit()">
+            <input type="hidden" name="agregar" value="<?php echo $row['idPlatillo']; ?>">
+            <div class="img-box">
+                <img src="ImagenesPlatillos/<?php echo $row['Imagen']; ?>" alt="<?php echo htmlspecialchars($row['Platillo']); ?>">
+            </div>
+            <h3><?php echo htmlspecialchars($row['Platillo']); ?></h3>
+            <p>$<?php echo number_format($row['PrecioVenta'], 2); ?></p>
+        </form>
+    <?php endwhile; ?>
 </div>
 
 <script>
-// Ocultar alerta automáticamente
 setTimeout(() => {
-    let a = document.getElementById("alerta");
-    if (a) a.classList.remove("alerta-activa");
+    const alerta = document.getElementById("alerta");
+    if (alerta) alerta.classList.remove("alerta");
 }, 2000);
 </script>
 

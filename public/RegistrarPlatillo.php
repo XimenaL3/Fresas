@@ -199,7 +199,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit" class="btn-login">Registrar Platillo</button>
 
         <div class="links">
-            <a href="DashboardAdministradores.php">Volver al Panel</a>
+            <a href="VerPlatillos.php">Volver</a>
         </div>
 
     </form>

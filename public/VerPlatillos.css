@@ -1,137 +1,171 @@
-/* ============================================================
-   🎀 FONDO PINKBERRY — igual que el Dashboard Administradores
-   ============================================================ */
+/* =======================================
+   🌸 FONDO PINKBERRY PROFESIONAL
+======================================= */
 body {
     margin: 0;
-    padding: 0;
+    padding: 0 0 40px 0;
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #ff9acb, #ffd4e9, #fff0f7);
+    background: radial-gradient(circle at 15% 20%, #ffe3f1, #fff1f8, #ffffff),
+                radial-gradient(circle at 85% 80%, #ffd0e4, #ffe7f3, #ffffff);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* ============================================================
-   🎀 TOP BAR (Ir a carrito / Agregar platillo)
-   ============================================================ */
-.top-bar {
-    width: 95%;
+/* =======================================
+   TÍTULO PRINCIPAL
+======================================= */
+.titulo {
+    margin-top: 30px;
+    font-size: 32px;
+    color: #c2185b;
+    font-weight: 900;
+    text-shadow: 0px 4px 12px rgba(194,24,91,0.25);
+    text-align: center;
+}
+
+/* =======================================
+   BOTONES SUPERIORES
+======================================= */
+.top-buttons {
+    width: 90%;
+    max-width: 1150px;
     display: flex;
     justify-content: flex-end;
-    gap: 15px;
-    padding: 25px 10px 0 10px;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-.btn-carrito,
-.btn-agregar {
+.btn-agregar,
+.btn-regresar {
+    background: #ffffffdd;
+    backdrop-filter: blur(5px);
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 2px solid #f6c7dd;
+    font-weight: 600;
+    color: #b31259;
     text-decoration: none;
-    background: #ff77b7;
-    padding: 12px 22px;
-    color: white;
-    font-weight: 700;
-    border-radius: 16px;
-    box-shadow: 0 6px 15px rgba(255, 0, 116, 0.25);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: 0.3s ease;
 }
 
-.btn-agregar {
-    background: #ff2f89;
+.btn-agregar:hover,
+.btn-regresar:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 22px rgba(255,0,116,0.25);
 }
 
-.btn-carrito:hover,
-.btn-agregar:hover {
-    transform: scale(1.08);
-    box-shadow: 0px 8px 18px rgba(255, 0, 116, 0.35);
-}
-
-/* ============================================================
-   🎀 GRID DE PLATILLOS — estilo elegante Pinkberry
-   ============================================================ */
+/* =======================================
+   GRID DE PLATILLOS
+======================================= */
 .platillos-container {
     width: 90%;
-    max-width: 1200px;
-    padding: 25px;
+    max-width: 1150px;
     display: grid;
-    gap: 28px;
+    gap: 32px;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-bottom: 40px;
 }
 
-/* ============================================================
-   🎀 TARJETAS DE PLATILLOS — estilo idéntico al Dashboard
-   ============================================================ */
+/* =======================================
+   TARJETA PLATILLOS
+======================================= */
 .card {
-    background: #ffffffdd;
-    backdrop-filter: blur(6px);
-    border: 2px solid #ff77b7;
-    border-radius: 22px;
-    padding: 18px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #f6c7dd;
+    padding: 24px;
     text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 10px 20px rgba(214, 44, 112, 0.15);
+    transition: all 0.35s ease;
+    overflow: hidden;
+    position: relative;
+}
 
-    box-shadow: 0px 10px 25px rgba(255, 0, 119, 0.25);
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease,
-                opacity 0.35s ease;
+.card::before {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 400%;
+    height: 400%;
+    background: radial-gradient(circle, rgba(255, 93, 155, 0.08), transparent 65%);
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 .card:hover {
-    transform: scale(1.10);
-    box-shadow: 0px 12px 25px rgba(255, 0, 119, 0.35);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0px 15px 35px rgba(214, 44, 112, 0.30);
 }
 
-.card img {
+/* IMAGEN DEL PLATILLO */
+.img-box {
     width: 100%;
-    height: 170px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0px 8px 16px rgba(255, 127, 171, 0.25);
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 18px;
+    transition: transform 0.45s ease;
 }
 
-/* TÍTULO DEL PLATILLO */
-.card h4 {
-    margin: 12px 0 5px;
-    color: #d81b60;
-    font-size: 19px;
-    font-weight: 700;
+.card:hover .img-box img {
+    transform: scale(1.08);
 }
 
-/* PRECIO */
+/* TITULO Y PRECIO */
+.card h3 {
+    margin-top: 10px;
+    font-size: 21px;
+    color: #b31259;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
 .card p {
     color: #ff2f89;
-    font-weight: 800;
+    font-weight: 700;
     margin-top: 5px;
 }
 
-/* ============================================================
-   🎀 BOTÓN "Agregar al carrito" estilo Pinkberry
-   ============================================================ */
+/* BOTÓN AGREGAR */
 .boton-add {
-    background: #ff4fa3;
-    border: none;
-    padding: 12px 14px;
-    color: white;
-    font-weight: bold;
+    background: #ffffffdd;
+    backdrop-filter: blur(4px);
+    border: 2px solid #f6c7dd;
+    padding: 10px 0;
     border-radius: 14px;
-    margin-top: 12px;
+    font-weight: 600;
+    color: #b31259;
     cursor: pointer;
+    margin-top: 12px;
     width: 100%;
-
-    box-shadow: 0 4px 10px rgba(255, 0, 116, 0.25);
-    transition: 0.25s;
+    transition: 0.25s ease;
 }
 
 .boton-add:hover {
-    background: #ff2f89;
     transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(255,0,116,0.25);
 }
 
-/* ============================================================
-   🎀 ALERTAS — estilo suave y elegante
-   ============================================================ */
+/* ALERTAS */
 #alerta {
     position: fixed;
     top: -200px;
     right: 20px;
-
     background: #ffe2f0;
     padding: 14px 20px;
     border-radius: 12px;
@@ -141,6 +175,30 @@ body {
     transition: 0.55s ease;
 }
 
-.alerta-activa {
+.alerta {
     top: 25px !important;
+}
+
+/* EFECTO DE ENFOQUE AL GRID */
+.platillos-container:hover .card {
+    opacity: 0.5;
+    filter: blur(1px);
+}
+
+.platillos-container .card:hover {
+    opacity: 1;
+    filter: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .platillos-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .top-buttons {
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }

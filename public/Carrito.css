@@ -1,86 +1,125 @@
-/* ===== FONDO ARTÍSTICO ===== */
+/* =======================================
+   🌸 FONDO PINKBERRY PROFESIONAL
+======================================= */
 body {
     margin: 0;
-    font-family: "Poppins", Arial, sans-serif;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(255,182,193,0.85), rgba(255,240,247,0.5), white),
-        radial-gradient(circle at 80% 80%, rgba(255,105,155,0.65), rgba(255,200,220,0.4), white),
-        linear-gradient(135deg, #ff6fa5, #ffc2d7, #ffffff);
-    background-blend-mode: soft-light, overlay, normal;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+
+    background: radial-gradient(circle at 15% 20%, #ffe3f1, #fff1f8, #ffffff),
+                linear-gradient(120deg, #ffd0e4, #ffe7f3);
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 40px 0;
 }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
+/* =======================================
+   CONTENEDOR PRINCIPAL
+======================================= */
 .contenedor {
     width: 90%;
-    max-width: 850px;
-    margin: auto;
-    background: #ffffffee;
-    padding: 28px;
+    max-width: 900px;
+    background: #ffffff;
     border-radius: 20px;
-    border: 2px solid #ff8abd;
-    box-shadow: 0px 10px 28px rgba(255, 110, 160, 0.28);
+    border: 1px solid #f6c7dd;
+    padding: 28px;
+    box-shadow: 0px 10px 25px rgba(214, 44, 112, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* ===== TÍTULO ===== */
+/* =======================================
+   TÍTULO
+======================================= */
 h2 {
     text-align: center;
-    color: #ff4f9b;
-    font-size: 26px;
-    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: 900;
+    color: #c2185b;
+    letter-spacing: 1px;
+    text-shadow: 0px 5px 15px rgba(194, 24, 91, 0.25),
+                 0px 1px 2px rgba(0,0,0,0.12);
 }
 
-/* ===== MENSAJE ===== */
+/* =======================================
+   MENSAJE DE ALERTA
+======================================= */
 .mensaje {
-    background: #ffe6ed;
-    padding: 12px;
-    border-radius: 10px;
+    background: #ffe2f0;
+    padding: 14px 20px;
+    border-radius: 12px;
     color: #b30055;
+    font-size: 15px;
     text-align: center;
-    font-size: 14px;
-    margin-bottom: 18px;
+    box-shadow: 0 5px 15px rgba(255,0,116,0.25);
+    transition: 0.5s ease;
 }
 
-/* ===== TEXTO VACÍO ===== */
+/* =======================================
+   TEXTO VACÍO
+======================================= */
 .vacio {
     text-align: center;
-    color: #666;
     font-size: 18px;
+    color: #666;
 }
 
-/* ===== LISTA DE PRODUCTOS ===== */
+/* =======================================
+   LISTA DE PRODUCTOS
+======================================= */
 .carrito-lista .item {
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #ffd1e6;
-    padding: 15px 0;
+    border-bottom: 1px solid #f6c7dd;
+    padding: 16px 0;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0px 8px 18px rgba(214, 44, 112, 0.08);
 }
 
-/* ===== IMAGEN ===== */
+.carrito-lista .item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0px 12px 28px rgba(214,44,112,0.18);
+}
+
+/* =======================================
+   IMAGEN DEL PRODUCTO
+======================================= */
 .foto {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
     object-fit: cover;
-    border-radius: 14px;
-    border: 2px solid #ff8abd;
-    margin-right: 15px;
-    background: #fff0f6;
+    border: 2px solid #f6c7dd;
+    margin-right: 20px;
 }
 
-/* ===== INFORMACIÓN ===== */
+/* =======================================
+   INFORMACIÓN DEL PRODUCTO
+======================================= */
 .info h3 {
     margin: 0;
     font-size: 20px;
-    color: #d63384;
+    color: #b31259;
+    font-weight: 600;
 }
 
 .info p {
     margin: 4px 0;
-    color: #a02261;
     font-size: 14px;
+    color: #d81b60;
 }
 
-/* ===== ACCIONES ===== */
+/* =======================================
+   ACCIONES SUMAR / RESTAR
+======================================= */
 .acciones {
     margin-left: auto;
     display: flex;
@@ -88,17 +127,17 @@ h2 {
     gap: 12px;
 }
 
-/* ===== BOTONES SUMAR / RESTAR ===== */
 .btn-sumar,
 .btn-restar {
-    padding: 8px 12px;
-    text-decoration: none;
-    color: white;
-    border-radius: 10px;
-    font-size: 18px;
+    background: #ff77b7;
+    color: #fff;
     font-weight: bold;
-    transition: 0.25s;
+    font-size: 18px;
     border: none;
+    border-radius: 12px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-sumar {
@@ -111,46 +150,99 @@ h2 {
 
 .btn-sumar:hover,
 .btn-restar:hover {
-    opacity: 0.85;
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(255,0,116,0.25);
 }
 
-/* ===== CANTIDAD ===== */
+/* =======================================
+   CANTIDAD
+======================================= */
 .cantidad {
     font-size: 18px;
     font-weight: bold;
     width: 30px;
     text-align: center;
-    color: #d63384;
+    color: #b31259;
 }
 
-/* ===== TOTAL ===== */
+/* =======================================
+   TOTAL
+======================================= */
 .total {
     text-align: right;
-    margin-top: 20px;
     font-size: 22px;
-    color: #b30055;
-    font-weight: bold;
+    font-weight: 700;
+    color: #c2185b;
+    margin-top: 15px;
 }
 
-/* ===== FORMULARIO DE COMPRA ===== */
+/* =======================================
+   FORMULARIO DE VENTA
+======================================= */
 .venta-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
     margin-top: 25px;
-    text-align: center;
 }
 
-/* ===== BOTÓN COMPRAR ===== */
+.venta-form select {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #f6c7dd;
+    font-size: 16px;
+    font-weight: 500;
+    color: #b31259;
+    outline: none;
+    width: 200px;
+}
+
+/* =======================================
+   BOTÓN REALIZAR VENTA
+======================================= */
 .btn-comprar {
     background: linear-gradient(135deg, #ff66b2, #ff3385);
-    padding: 14px 24px;
-    color: white;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
     border: none;
-    border-radius: 12px;
-    font-size: 20px;
-    font-weight: bold;
+    padding: 12px 22px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-comprar:hover {
-    background: linear-gradient(135deg, #ff3385, #ff0073);
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(255,0,116,0.35);
 }
+
+/* =======================================
+   EFECTO GLOBAL DE ENFOQUE EN ITEMS
+======================================= */
+.carrito-lista:hover .item {
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.carrito-lista .item:hover {
+    opacity: 1;
+    filter: none;
+}
+
+/* BOTÓN ATRÁS */
+.btn-atras {
+    text-decoration: none;
+    background: linear-gradient(135deg, #ff99c1, #ff66b2);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-atras:hover {
+    background: linear-gradient(135deg, #ff66b2, #ff3385);
+}
+

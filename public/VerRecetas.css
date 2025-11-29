@@ -1,89 +1,137 @@
-/* ===== FONDO GENERAL ===== */
+/* =======================================
+   🌸 FONDO ESTILO PINKBERRY PROFESIONAL
+======================================= */
 body {
     margin: 0;
-    padding: 0;
-    font-family: "Poppins", Arial, sans-serif;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(255,182,193,0.85), rgba(255,240,247,0.5), white),
-        radial-gradient(circle at 80% 80%, rgba(255,105,155,0.65), rgba(255,200,220,0.4), white),
-        linear-gradient(135deg, #ff6fa5, #ffc2d7, #ffffff);
-    background-blend-mode: soft-light, overlay, normal;
+    padding: 0 0 40px 0;
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle at 15% 20%, #ffe3f1, #fff1f8, #ffffff),
+                radial-gradient(circle at 85% 80%, #ffd0e4, #ffe7f3, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* CONTENEDOR */
-.contenedor {
-    width: 900px;
-    margin: 40px auto;
-    background: #ffffffcc;
-    padding: 30px;
-    border-radius: 20px;
-    border: 2px solid #ff8abd;
-    box-shadow: 0px 10px 28px rgba(255, 110, 160, 0.30);
-}
-
-/* TITULO */
-h1 {
+/* Título principal */
+.titulo {
+    margin-top: 30px;
+    font-size: 32px;
+    color: #c2185b;
+    font-weight: 900;
+    text-shadow: 0px 4px 12px rgba(194,24,91,0.25);
     text-align: center;
-    color: #ff4f9b;
-    margin-bottom: 25px;
 }
 
-/* TARJETAS */
+/* Botones superiores */
+.top-buttons {
+    width: 90%;
+    max-width: 950px;
+    display: flex;
+    justify-content: flex-end; /* alineación a la derecha */
+    gap: 12px;
+    margin: 30px 0 20px 0;
+}
+
+.btn-agregar,
+.btn-regresar {
+    background: #ffffffdd;
+    backdrop-filter: blur(5px);
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 2px solid #f6c7dd;
+    font-weight: 600;
+    color: #b31259;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-agregar:hover,
+.btn-regresar:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 22px rgba(255,0,116,0.25);
+}
+
+/* Contenedor de tarjetas */
+.contenedor {
+    width: 90%;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column; /* apiladas una debajo de otra */
+    gap: 18px; /* espacio entre tarjetas */
+}
+
+/* Tarjetas de recetas */
 .card {
-    background: #fff6fa;
-    padding: 18px;
-    border-radius: 14px;
-    border: 2px solid #ffb3d9;
-    margin-bottom: 15px;
+    background: #ffffffdd;
+    padding: 20px;
+    border-radius: 16px;
+    border: 2px solid #f6c7dd;
+    box-shadow: 0 8px 20px rgba(214,44,112,0.08);
 }
 
 .card h2 {
     color: #d63384;
+    font-size: 20px;
+    margin-bottom: 12px;
 }
 
-/* BOTONES SUPERIORES */
-.top-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.card p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #6f1d5f;
 }
 
-.btn {
-    padding: 10px 14px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
-
-.agregar {
-    background: #ff66b2;
-}
-
-.volver {
-    background: #ff3385;
-}
-
-/* ACCIONES */
+/* Acciones dentro de cada tarjeta */
 .acciones {
     margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.btn.ver {
+.btn-ver {
     background: #4f9bff;
+    padding: 8px 14px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
 }
 
-.btn.editar {
+.btn-editar {
     background: #ffa533;
+    padding: 8px 14px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
 }
 
-.btn.eliminar {
+.btn-eliminar {
     background: #ff3355;
+    padding: 8px 14px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
 }
 
-/* MODAL */
+.acciones button:hover,
+.acciones a:hover {
+    transform: scale(1.05);
+}
+
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -94,34 +142,67 @@ h1 {
     background: rgba(0,0,0,0.45);
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .modal-content {
-    width: 550px;
-    background: white;
-    padding: 25px;
+    width: 90%;
+    max-width: 600px;
+    background: #ffffffdd;
+    padding: 28px;
     border-radius: 20px;
-    border: 3px solid #ff8abd;
+    border: 2px solid #f6c7dd;
+    box-shadow: 0 12px 28px rgba(214,44,112,0.18);
+    overflow-y: auto;
+    max-height: 85vh;
 }
 
 .cerrar {
     float: right;
-    font-size: 25px;
+    font-size: 24px;
     cursor: pointer;
     color: #ff3385;
 }
 
 .modal h2 {
-    color: #d63384;
+    color: #c2185b;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .modal h3 {
-    color: #ff4fa3;
+    color: #d63384;
+    font-size: 16px;
+    margin-top: 12px;
+    margin-bottom: 6px;
 }
 
 .instrucciones {
-    background: #fff2f7;
-    padding: 10px;
-    border-radius: 10px;
+    background: #fff0f7;
+    padding: 12px;
+    border-radius: 12px;
     border: 1px solid #ffcce1;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modal ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.modal ul li {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #6f1d5f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .acciones {
+        flex-direction: column;
+    }
+    .top-buttons {
+        justify-content: center; /* centra botones en móvil */
+    }
 }

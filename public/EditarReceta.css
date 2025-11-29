@@ -2,10 +2,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Poppins", Arial, sans-serif;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,182,193,0.85), rgba(255,240,247,0.5), white),
-        radial-gradient(circle at 80% 80%, rgba(255,105,155,0.65), rgba(255,200,220,0.4), white),
-        linear-gradient(135deg, #ff6fa5, #ffc2d7, #ffffff);
+    background: radial-gradient(circle at 15% 20%, #ffe3f1, #fff1f8, #ffffff),
+                radial-gradient(circle at 85% 80%, #ffd0e4, #ffe7f3, #ffffff);
+    background-blend-mode: soft-light, overlay, normal;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -13,9 +12,9 @@ body {
 }
 
 .registro-container {
+    width: 100%;
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
 .registro-box {
@@ -24,26 +23,33 @@ body {
     width: 850px;
     border-radius: 20px;
     border: 2px solid #ff8abd;
-    box-shadow: 0 10px 28px rgba(255, 110, 160, 0.25);
+    box-shadow: 0px 10px 28px rgba(255,110,160,0.25);
 }
 
 h2 {
     text-align: center;
     color: #ff4f9b;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .seccion h3 {
     color: #d63384;
+    margin-bottom: 10px;
 }
 
 textarea {
     width: 100%;
     height: 140px;
+    resize: none;
     padding: 12px;
     border-radius: 12px;
     border: 2px solid #ffb3d9;
     background: #fff6fa;
+    transition: 0.3s;
+}
+
+textarea:focus {
+    border-color: #ff66b2;
 }
 
 #contenedor-ingredientes {
@@ -69,10 +75,11 @@ select, input[type="number"] {
 .btn-agregar {
     margin-top: 15px;
     background: #4f9bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
+    padding: 10px 14px;
     border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -87,14 +94,14 @@ select, input[type="number"] {
 
 .btn-guardar {
     width: 100%;
-    margin-top: 18px;
     padding: 12px;
-    border-radius: 12px;
-    border: none;
     background: linear-gradient(135deg, #ff66b2, #ff3385);
+    border: none;
+    border-radius: 12px;
     color: white;
     font-size: 16px;
     font-weight: bold;
+    margin-top: 18px;
 }
 
 .links {
@@ -103,6 +110,16 @@ select, input[type="number"] {
 }
 
 .links a {
-    text-decoration: none;
     color: #ff4fa3;
+    text-decoration: none;
+}
+
+.alerta {
+    background: #ffe6ed;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    color: #b30055;
+    text-align: center;
+    font-size: 14px;
 }

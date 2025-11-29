@@ -2,14 +2,14 @@
 session_start();
 require_once "../includes/conexion.php";
 
-// Fecha por defecto — fecha actual
+// Fecha por defecto = día actual
 $fecha = isset($_GET['fecha']) ? $_GET['fecha'] : date("Y-m-d");
 
 $mensaje = "";
-$ventas = [];
+$pedidos = [];
 
-// Consulta a la vista VistaVentas
-$sql = "SELECT * FROM VistaVentas WHERE DATE(Fecha) = ?";
+// Consulta a la vista VistaPedidos
+$sql = "SELECT * FROM VistaPedidos WHERE DATE(Fecha) = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $fecha);
 $stmt->execute();
@@ -17,73 +17,75 @@ $resultado = $stmt->get_result();
 
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
-        $ventas[] = $fila;
+        $pedidos[] = $fila;
     }
 } else {
-    $mensaje = "No hay ventas para esta fecha";
+    $mensaje = "No hay pedidos para esta fecha";
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ventas del Día</title>
-    <link rel="stylesheet" href="VerVentas.css">
+    <title>Pedidos Registrados</title>
+    <link rel="stylesheet" href="VerPedidos.css">
 </head>
 <body>
 
-<h2 class="titulo">Consulta de Ventas</h2>
+<h2 class="titulo">Consulta de Pedidos</h2>
 
 <div class="top-buttons">
     <a href="DashboardAdministradores.php" class="btn-regresar">← Regresar</a>
 </div>
 
 <div class="tabla-contenedor">
-    <!-- FORMULARIO DE FECHA -->
+
+    <!-- FORMULARIO FECHA -->
     <form method="GET" class="form-fecha">
         <label><strong>Seleccione una fecha:</strong></label>
         <input type="date" name="fecha" value="<?= $fecha ?>" required>
         <button type="submit" class="btn-buscar">Buscar</button>
     </form>
 
-    <!-- MENSAJE SI NO HAY VENTAS -->
+    <!-- MENSAJE SI NO HAY DATOS -->
     <?php if (!empty($mensaje)) : ?>
         <div class="alerta"><?= $mensaje ?></div>
     <?php endif; ?>
 
-    <!-- TABLA DE RESULTADOS -->
-    <?php if (count($ventas) > 0) : ?>
-        <table class="tabla-ventas">
+    <!-- TABLA -->
+    <?php if (count($pedidos) > 0) : ?>
+        <table class="tabla-pedidos">
             <thead>
                 <tr>
-                    <th>ID Venta</th>
+                    <th>ID Pedido</th>
                     <th>Fecha</th>
-                    <th>Cajero</th>
+                    <th>Fecha Entrega</th>
+                    <th>Cliente</th>
                     <th>Platillo</th>
                     <th>Cantidad</th>
                     <th>Precio Unitario</th>
                     <th>Total</th>
-                    <th>Tipo Pago</th>
                     <th>Estatus</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($ventas as $v) : ?>
+                <?php foreach ($pedidos as $p) : ?>
                 <tr>
-                    <td><?= $v["idVenta"] ?></td>
-                    <td><?= $v["Fecha"] ?></td>
-                    <td><?= $v["Cajero"] ?></td>
-                    <td><?= $v["Platillo"] ?></td>
-                    <td><?= $v["Cantidad"] ?></td>
-                    <td>$<?= number_format($v["PrecioUnitario"], 2) ?></td>
-                    <td>$<?= number_format($v["Total"], 2) ?></td>
-                    <td><?= $v["TipoPago"] ?></td>
-                    <td><?= $v["Estatus"] ?></td>
+                    <td><?= $p["idPedido"] ?></td>
+                    <td><?= $p["Fecha"] ?></td>
+                    <td><?= $p["FechaEntrega"] ?></td>
+                    <td><?= $p["Cliente"] ?></td>
+                    <td><?= $p["Platillo"] ?></td>
+                    <td><?= $p["Cantidad"] ?></td>
+                    <td>$<?= number_format($p["PrecioUnitario"], 2) ?></td>
+                    <td>$<?= number_format($p["Total"], 2) ?></td>
+                    <td><?= $p["Estatus"] ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     <?php endif; ?>
+
 </div>
 
 </body>

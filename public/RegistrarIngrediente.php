@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit" class="btn-guardar">Registrar Ingrediente</button>
 
         <div class="links">
-            <a href="VerIngredientes.php">⟵ Regresar a la lista</a>
+            <a href="VerIngredientes.php">Volver</a>
         </div>
 
     </form>

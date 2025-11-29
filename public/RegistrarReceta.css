@@ -2,10 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Poppins", Arial, sans-serif;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,182,193,0.85), rgba(255,240,247,0.5), white),
-        radial-gradient(circle at 80% 80%, rgba(255,105,155,0.65), rgba(255,200,220,0.4), white),
-        linear-gradient(135deg, #ff6fa5, #ffc2d7, #ffffff);
+    background: radial-gradient(circle at 15% 20%, #ffe3f1, #fff1f8, #ffffff),
+                radial-gradient(circle at 85% 80%, #ffd0e4, #ffe7f3, #ffffff);
     background-blend-mode: soft-light, overlay, normal;
 
     display: flex;
@@ -115,4 +113,14 @@ select, input[type="number"] {
 .links a {
     color: #ff4fa3;
     text-decoration: none;
+}
+
+.alerta {
+    background: #ffe6ed;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    color: #b30055;
+    text-align: center;
+    font-size: 14px;
 }

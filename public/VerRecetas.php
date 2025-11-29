@@ -48,61 +48,59 @@ while ($row = $result->fetch_assoc()) {
 </head>
 <body>
 
+<!-- TÍTULO PRINCIPAL -->
+<h1 class="titulo">Recetas</h1>
+
+<!-- BOTONES SUPERIORES -->
+<div class="top-buttons">
+    <a href="RegistrarReceta.php" class="btn-agregar">Agregar Nueva Receta</a>
+    <a href="DashboardAdministradores.php" class="btn-regresar">Volver</a>
+</div>
+
+<!-- CONTENEDOR DE TARJETAS -->
 <div class="contenedor">
-
-    <h1>📘 Lista de Recetas</h1>
-
-    <div class="top-buttons">
-        <a href="RegistrarReceta.php" class="btn agregar">➕ Agregar Nueva Receta</a>
-        <a href="DashboardAdministradores.php" class="btn volver">⬅ Volver</a>
-    </div>
-
     <?php foreach ($recetas as $receta): ?>
         <div class="card">
-            <h2>🍽 Receta #<?= $receta["idReceta"] ?></h2>
+            <h2>Receta #<?= $receta["idReceta"] ?></h2>
 
             <p><strong>Creador:</strong> <?= $receta["Creador"] ?></p>
             <p><strong>Fecha:</strong> <?= $receta["FechaCreacion"] ?></p>
 
             <div class="acciones">
-                <button class="btn ver" onclick="abrirModal(<?= $receta['idReceta'] ?>)">Ver Detalles</button>
-                <a href="EditarReceta.php?id=<?= $receta['idReceta'] ?>" class="btn editar">✏ Editar</a>
-                <a href="EliminarReceta.php?id=<?= $receta['idReceta'] ?>" class="btn eliminar"
-                   onclick="return confirm('¿Eliminar esta receta?');">🗑 Eliminar</a>
+                <button class="btn-ver" onclick="abrirModal(<?= $receta['idReceta'] ?>)">Ver Detalles</button>
+                <a href="EditarReceta.php?id=<?= $receta['idReceta'] ?>" class="btn-editar">Editar</a>
+                <a href="EliminarReceta.php?id=<?= $receta['idReceta'] ?>" class="btn-eliminar"
+                   onclick="return confirm('¿Eliminar esta receta?');">Eliminar</a>
             </div>
         </div>
 
-        <!-- =============== MODAL =============== -->
+        <!-- MODAL -->
         <div id="modal<?= $receta['idReceta'] ?>" class="modal">
             <div class="modal-content">
                 <span class="cerrar" onclick="cerrarModal(<?= $receta['idReceta'] ?>)">&times;</span>
 
-                <h2>🍽 Receta #<?= $receta["idReceta"] ?></h2>
+                <h2>Receta #<?= $receta["idReceta"] ?></h2>
 
-                <h3>👨‍🍳 Creador</h3>
+                <h3>Creador</h3>
                 <p><?= $receta["Creador"] ?></p>
 
-                <h3>📅 Fecha de creación</h3>
+                <h3>Fecha de creación</h3>
                 <p><?= $receta["FechaCreacion"] ?></p>
 
-                <h3>📝 Instrucciones</h3>
+                <h3>Instrucciones</h3>
                 <p class="instrucciones"><?= nl2br($receta["Instrucciones"]) ?></p>
 
-                <h3>🥣 Ingredientes</h3>
+                <h3>Ingredientes</h3>
                 <ul>
                     <?php foreach ($receta["Ingredientes"] as $ing): ?>
                         <li>
-                            <?= $ing["Ingrediente"] ?> -
-                            <?= $ing["CantidadRequerida"] . " " . $ing["UnidadMedida"] ?>
+                            <?= $ing["Ingrediente"] ?> - <?= $ing["CantidadRequerida"] . " " . $ing["UnidadMedida"] ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
-
             </div>
         </div>
-
     <?php endforeach; ?>
-
 </div>
 
 <script>

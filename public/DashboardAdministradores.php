@@ -9,12 +9,12 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] != 1) {
 
 // OPCIONES DEL MENÚ CON ARCHIVOS .PHP
 $opciones = [
-    ["titulo" => "Platillos",     "img" => "imagenes/platillos.png",     "url" => "VerPlatillos.php"],
-    ["titulo" => "Ingredientes",  "img" => "imagenes/ingredientes.png",  "url" => "VerIngredientes.php"],
-    ["titulo" => "Recetas",       "img" => "imagenes/recetas.png",       "url" => "VerRecetas.php"],
-    ["titulo" => "Clientes",      "img" => "imagenes/clientes.png",      "url" => "VerUsuarios.php"],
-    ["titulo" => "Ventas",        "img" => "imagenes/ventas.png",        "url" => "Verventas.php"],
-    ["titulo" => "Pedidos",       "img" => "imagenes/pedidos.png",       "url" => "Pedidos.php"]
+    ["titulo" => "Platillos",     "img" => "imagenes/Menu.png",     "url" => "VerPlatillos.php"],
+    ["titulo" => "Ingredientes",  "img" => "imagenes/Ingredientes.png",  "url" => "VerIngredientes.php"],
+    ["titulo" => "Recetas",       "img" => "imagenes/Recetas.png",       "url" => "VerRecetas.php"],
+    ["titulo" => "Clientes",      "img" => "imagenes/Clientes.png",      "url" => "VerUsuarios.php"],
+    ["titulo" => "Ventas",        "img" => "imagenes/Ventas.png",        "url" => "Verventas.php"],
+    ["titulo" => "Pedidos",       "img" => "imagenes/Pedidos.png",       "url" => "VerPedidos.php"]
 ];
 ?>
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ $opciones = [
 </head>
 <body>
 
-<h1 class="titulo">PinkberryDelights • Panel de Administración</h1>
+<h1 class="titulo">PinkberryDelights</h1>
 
 <div class="menu-grid">
     <?php foreach ($opciones as $op): ?>

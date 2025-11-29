@@ -26,17 +26,6 @@ CREATE TABLE Persona (
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-CREATE TABLE AuditoriaPersona (
-    idAuditoriaPersona INT AUTO_INCREMENT PRIMARY KEY,
-    Movimiento ENUM('INSERT', 'UPDATE', 'DELETE') NOT NULL,
-    ColumnaAfectada VARCHAR(100),
-    DatoAnterior TEXT,
-    DatoNuevo TEXT,
-    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-    idPersona INT NOT NULL,
-    FOREIGN KEY (idPersona) REFERENCES Persona(idPersona)
-        ON UPDATE CASCADE ON DELETE CASCADE
-);
 
 CREATE TABLE Categoria (
     idCategoria INT AUTO_INCREMENT PRIMARY KEY,
@@ -98,18 +87,6 @@ CREATE TABLE DetalleReceta (
     FOREIGN KEY (idIngrediente) REFERENCES Ingrediente(idIngrediente)
         ON UPDATE CASCADE ON DELETE RESTRICT,
     UNIQUE (idReceta, idIngrediente)
-);
-
-CREATE TABLE AuditoriaPlatillo (
-    idAuditoriaPlatillo INT AUTO_INCREMENT PRIMARY KEY,
-    Movimiento ENUM('INSERT', 'UPDATE', 'DELETE') NOT NULL,
-    ColumnaAfectada VARCHAR(100),
-    DatoAnterior TEXT,
-    DatoNuevo TEXT,
-    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-    idPersona INT NOT NULL,
-    FOREIGN KEY (idPersona) REFERENCES Persona(idPersona)
-        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Venta (
@@ -179,64 +156,7 @@ CREATE TABLE DetallePedido (
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-CREATE TABLE Devolucion (
-    idDevolucion INT AUTO_INCREMENT PRIMARY KEY,
-    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Motivo VARCHAR(255) NOT NULL,
-    idPersona INT NOT NULL,
-    FOREIGN KEY (idPersona) REFERENCES Persona(idPersona)
-        ON UPDATE CASCADE ON DELETE RESTRICT
-);
-
-CREATE TABLE DetalleDevolucion (
-    idDetalleDevolucion INT AUTO_INCREMENT PRIMARY KEY,
-    idDevolucion INT NOT NULL,
-    idVenta INT NOT NULL,
-    idDetalleVenta INT NOT NULL,
-    CantidadDevuelta INT NOT NULL CHECK (CantidadDevuelta > 0),
-    TotalDevuelto DECIMAL(10,2) NOT NULL CHECK (TotalDevuelto >= 0),
-    FOREIGN KEY (idDevolucion) REFERENCES Devolucion(idDevolucion)
-        ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (idVenta) REFERENCES Venta(idVenta)
-        ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (idDetalleVenta) REFERENCES DetalleVenta(idDetalleVenta)
-        ON UPDATE CASCADE ON DELETE RESTRICT
-);
-
-CREATE TABLE AuditoriaDevolucion (
-    idAuditoriaDevolucion INT AUTO_INCREMENT PRIMARY KEY,
-    Movimiento ENUM('INSERT', 'UPDATE', 'DELETE') NOT NULL,
-    ColumnaAfectada VARCHAR(100),
-    DatoAnterior TEXT,
-    DatoNuevo TEXT,
-    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-    idPersona INT NOT NULL,
-    FOREIGN KEY (idPersona) REFERENCES Persona(idPersona)
-        ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-
-
-CREATE TABLE Notificacion (
-    idNotificacion INT AUTO_INCREMENT PRIMARY KEY,
-    Tipo ENUM('Ingrediente', 'Platillo') NOT NULL,
-    idIngrediente INT,
-    idPlatillo INT,
-    CantidadActual DECIMAL(10,2) NOT NULL,
-    Mensaje VARCHAR(255) NOT NULL,
-    FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (idIngrediente) REFERENCES Ingrediente(idIngrediente)
-        ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (idPlatillo) REFERENCES Platillo(idPlatillo)
-        ON UPDATE CASCADE ON DELETE CASCADE
-);
-
--- Inserción de roles base para el sistema del restaurante/cafetería
-INSERT INTO Rol (NombreRol, Descripcion)
-VALUES
-('Administrador', 'Usuario con acceso total al sistema, encargado de gestionar usuarios, ventas, inventarios y configuraciones.'),
-('Cajero', 'Responsable del registro de ventas, pedidos, cobros, devoluciones y cierre de caja.'),
-('Cliente', 'Usuario que realiza pedidos, sugerencias o compras dentro del sistema.');CREATE TABLE Finanzas (
+CREATE TABLE Finanzas (
     idFinanzas INT AUTO_INCREMENT PRIMARY KEY,
     idVenta INT NOT NULL UNIQUE,
     TotalVenta DECIMAL(10,2) NOT NULL,
@@ -245,3 +165,8 @@ VALUES
     FOREIGN KEY (idVenta) REFERENCES Venta(idVenta)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+INSERT INTO Rol (NombreRol, Descripcion)
+VALUES
+('Administrador', 'Usuario con acceso total al sistema, encargado de gestionar usuarios, ventas, inventarios y configuraciones.'),
+('Cliente', 'Usuario que realiza pedidos, sugerencias o compras dentro del sistema.');

@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit" class="btn-guardar">Guardar Cambios</button>
 
         <div class="links">
-            <a href="VerIngredientes.php">⟵ Regresar a la lista</a>
+            <a href="VerIngredientes.php">Volver</a>
         </div>
 
     </form>

@@ -109,11 +109,16 @@ $conn->next_result();
 
 <div class="contenedor">
 
-    <h2>🛒 Mi Carrito</h2>
+    <h2>Carrito</h2>
 
     <?php if (!empty($mensaje)): ?>
         <div class="mensaje"><?php echo $mensaje; ?></div>
     <?php endif; ?>
+
+    <!-- BOTÓN ATRÁS -->
+    <div style="text-align: left; margin-bottom: 15px;">
+        <a href="VerPlatillos.php" class="btn-atras">← Regresar</a>
+    </div>
 
     <?php if (count($carrito) === 0): ?>
         <p class="vacio">No tienes platillos en tu carrito.</p>
@@ -149,12 +154,8 @@ $conn->next_result();
 
         <!-- FORMULARIO PARA REALIZAR LA VENTA -->
         <form method="POST" class="venta-form">
-            <label>Tipo de Pago:</label>
-            <select name="tipo_pago" required>
-                <option value="Efectivo">Efectivo</option>
-                <option value="Tarjeta">Tarjeta</option>
-                <option value="En línea">En línea</option>
-            </select>
+            <!-- Tipo de pago oculto y fijo a efectivo -->
+            <input type="hidden" name="tipo_pago" value="Efectivo">
 
             <button type="submit" name="realizar_venta" class="btn-comprar">
                 Realizar Venta

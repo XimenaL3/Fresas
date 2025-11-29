@@ -1,140 +1,184 @@
-/* ===== FONDO ARTÍSTICO ===== */
+/* =======================================
+   🌸 FONDO ESTILO PINKBERRY PROFESIONAL
+======================================= */
 body {
     margin: 0;
-    font-family: "Poppins", Arial, sans-serif;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,182,193,0.85), rgba(255,240,247,0.5), white),
-        radial-gradient(circle at 80% 80%, rgba(255,105,155,0.65), rgba(255,200,220,0.4), white),
-        linear-gradient(135deg, #ff6fa5, #ffc2d7, #ffffff);
-    background-blend-mode: soft-light, overlay, normal;
-    padding: 40px 0;
+    padding: 0 0 40px 0;
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle at 15% 20%, #ffe3f1, #fff1f8, #ffffff),
+                radial-gradient(circle at 85% 80%, #ffd0e4, #ffe7f3, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* ===== CONTENEDOR ===== */
-.contenedor {
-    width: 95%;
-    max-width: 1100px;
-    margin: auto;
-    background: #ffffffee;
-    padding: 28px;
-    border-radius: 20px;
-    border: 2px solid #ff8abd;
-    box-shadow: 0px 10px 28px rgba(255, 110, 160, 0.28);
-}
-
-/* ===== TÍTULO ===== */
-h2 {
+/* Título principal */
+.titulo {
+    margin-top: 30px;
+    font-size: 32px;
+    color: #c2185b;
+    font-weight: 900;
+    text-shadow: 0px 4px 12px rgba(194,24,91,0.25);
     text-align: center;
-    color: #ff4f9b;
-    font-size: 28px;
-    margin-bottom: 20px;
 }
 
-/* ===== BOTÓN VOLVER ===== */
-.btn-atras {
-    display: inline-block;
-    margin-bottom: 15px;
-    background: linear-gradient(135deg, #ff66b2, #ff3385);
-    padding: 10px 16px;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
+/* Botones superiores */
+.top-buttons {
+    width: 90%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn-agregar,
+.btn-regresar {
+    background: #ffffffdd;
+    backdrop-filter: blur(5px);
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 2px solid #f6c7dd;
+    font-weight: 600;
+    color: #b31259;
     text-decoration: none;
-    transition: 0.25s;
+    transition: 0.3s ease;
 }
 
-.btn-atras:hover {
-    background: linear-gradient(135deg, #ff3385, #ff0073);
+.btn-agregar:hover,
+.btn-regresar:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 22px rgba(255,0,116,0.25);
 }
 
-/* ===== TABLA ===== */
+/* Alerta */
+.alerta {
+    background: #ffe2f0;
+    padding: 14px;
+    margin-top: 18px;
+    width: 90%;
+    max-width: 1100px;
+    border-radius: 12px;
+    color: #b30055;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(255,0,116,0.1);
+}
+
+/* Contenedor de tabla */
+.tabla-contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin-top: 30px;
+    overflow-x: auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(214,44,112,0.08);
+}
+
+/* Tabla */
 .tabla {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    border-radius: 14px;
+    background: #ffffffdd;
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
     overflow: hidden;
-}
-
-.tabla th {
-    background: #ff8abd;
-    color: white;
-    padding: 10px;
     font-size: 15px;
 }
 
-.tabla td {
-    padding: 12px;
-    text-align: center;
-    color: #a02261;
-    font-size: 14px;
-    border-bottom: 2px solid #ffd1e6;
-}
-
-/* ===== FOTO ===== */
-.foto {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    border: 2px solid #ff66b2;
-    object-fit: cover;
-}
-
-/* ===== ESTATUS ===== */
-.activo {
-    padding: 6px 12px;
-    background: #b3ffcc;
-    color: #0a7a33;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.inactivo {
-    padding: 6px 12px;
-    background: #ffd1d9;
-    color: #b30021;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-/* ===== ACCIONES ===== */
-.acciones {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.btn-editar,
-.btn-eliminar {
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    text-decoration: none;
-    font-weight: bold;
+/* Encabezados */
+.tabla thead {
+    background: linear-gradient(135deg, #ff66b2, #ff3385);
     color: white;
+    font-weight: 700;
+    text-align: center;
+}
+
+.tabla th,
+.tabla td {
+    padding: 14px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Filas alternadas */
+.tabla tbody tr:nth-child(even) {
+    background: #ffe9f4;
+}
+
+.tabla tbody tr:hover {
+    background: #ffd3eb;
+    transform: scale(1.01);
     transition: 0.25s;
 }
 
-.btn-editar {
-    background: linear-gradient(135deg, #ff9fd6, #ff6fbd);
+/* Imagenes */
+.tabla img {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #f6c7dd;
 }
 
-.btn-editar:hover {
-    opacity: 0.85;
+/* Estatus */
+.status {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.activo {
+    background: #c8ffd4;
+    color: #008f39;
+}
+
+.inactivo {
+    background: #ffd0d0;
+    color: #9f0000;
+}
+
+/* Acciones con solo emojis */
+.acciones a {
+    padding: 10px;
+    margin: 0 4px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.25s;
+}
+
+/* Mantener colores y hover */
+.btn-editar {
+    background: #fff3c4;
+    border: 2px solid #e0b100;
+    color: #916f00;
 }
 
 .btn-eliminar {
-    background: linear-gradient(135deg, #ff4d6d, #ff003f);
+    background: #ffd0d0;
+    border: 2px solid #ff4d6d;
+    color: #b30021;
+}
+
+.btn-editar:hover {
+    background: #ffe48b;
+    transform: scale(1.2);
 }
 
 .btn-eliminar:hover {
-    opacity: 0.85;
+    background: #ff9a9a;
+    transform: scale(1.2);
 }
 
-/* ===== VACÍO ===== */
-.vacio {
-    text-align: center;
-    padding: 20px;
-    font-size: 18px;
-    color: #a02261;
+/* Scroll en móviles */
+@media (max-width: 768px) {
+    .tabla th, .tabla td {
+        padding: 10px;
+    }
 }

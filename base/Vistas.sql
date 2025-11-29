@@ -92,38 +92,6 @@ INNER JOIN Persona per ON v.idPersona = per.idPersona
 INNER JOIN DetalleVenta dv ON v.idVenta = dv.idVenta
 INNER JOIN Platillo pl ON dv.idPlatillo = pl.idPlatillo;
 
-CREATE VIEW VistaNotificaciones AS
-SELECT
-    n.idNotificacion,
-    n.Tipo,
-    n.CantidadActual,
-    n.Mensaje,
-    n.FechaCreacion,
-    i.Nombre AS Ingrediente,
-    p.Nombre AS Platillo
-FROM Notificacion n
-LEFT JOIN Ingrediente i ON n.idIngrediente = i.idIngrediente
-LEFT JOIN Platillo p ON n.idPlatillo = p.idPlatillo;
-
-CREATE VIEW VistaDevoluciones AS
-SELECT
-    d.idDevolucion,
-    d.Fecha,
-    d.Motivo,
-    per.idPersona,
-    CONCAT(per.Nombre, ' ', per.ApellidoPaterno) AS Cliente,
-    dd.idVenta,
-    dv.idPlatillo,
-    pl.Nombre AS Platillo,
-    dd.CantidadDevuelta,
-    dd.TotalDevuelto
-FROM Devolucion d
-INNER JOIN Persona per ON d.idPersona = per.idPersona
-INNER JOIN DetalleDevolucion dd ON d.idDevolucion = dd.idDevolucion
-INNER JOIN Venta v ON dd.idVenta = v.idVenta
-INNER JOIN DetalleVenta dv ON dd.idDetalleVenta = dv.idDetalleVenta
-INNER JOIN Platillo pl ON dv.idPlatillo = pl.idPlatillo;
-
 CREATE OR REPLACE VIEW VistaUsuarios AS
 SELECT 
     p.idPersona,
@@ -147,17 +115,3 @@ SELECT
 FROM Categoria c
 LEFT JOIN Platillo p ON c.idCategoria = p.idCategoria
 GROUP BY c.idCategoria, c.Nombre, c.Descripcion, c.Imagen;
-
-CREATE OR REPLACE VIEW VistaFinanzas AS
-SELECT
-    f.idFinanzas,
-    v.idVenta,
-    v.Fecha AS FechaVenta,
-    v.TipoPago,
-    CONCAT(p.Nombre, ' ', p.ApellidoPaterno, ' ', p.ApellidoMaterno) AS Vendedor,
-    f.TotalVenta,
-    f.TotalInvertido,
-    f.Ganancia
-FROM Finanzas f
-INNER JOIN Venta v ON f.idVenta = v.idVenta
-INNER JOIN Persona p ON v.idPersona = p.idPersona;

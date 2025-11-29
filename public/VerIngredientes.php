@@ -30,11 +30,11 @@ if (!$resultado) {
 </head>
 <body>
 
-<h1 class="titulo">PinkberryDelights • Ingredientes</h1>
+<h1 class="titulo">Ingredientes</h1>
 
 <div class="top-buttons">
-    <a href="RegistrarIngrediente.php" class="btn-agregar">➕ Agregar Ingrediente</a>
-    <a href="DashboardAdministradores.php" class="btn-regresar">⟵ Regresar</a>
+    <a href="RegistrarIngrediente.php" class="btn-regresar">Agregar Ingrediente</a>
+    <a href="DashboardAdministradores.php" class="btn-regresar">Volver</a>
 </div>
 
 <?php if (!empty($mensaje)): ?>

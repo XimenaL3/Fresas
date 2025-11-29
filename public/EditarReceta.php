@@ -68,7 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $jsonFinal = json_encode($ingredientesJSON, JSON_UNESCAPED_UNICODE);
 
-    // Llamar SP
     $stmt = $conn->prepare("CALL EditarReceta(?, ?, ?)");
     $stmt->bind_param("iss", $idReceta, $instrucciones, $jsonFinal);
 
@@ -100,19 +99,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!-- INSTRUCCIONES -->
         <div class="seccion">
-            <h3>📝 Instrucciones</h3>
+            <h3>Instrucciones</h3>
             <textarea name="instrucciones" required><?= $receta["Instrucciones"] ?></textarea>
         </div>
 
         <!-- INGREDIENTES -->
         <div class="seccion">
-            <h3>🥣 Ingredientes</h3>
+            <h3>Ingredientes</h3>
 
             <div id="contenedor-ingredientes">
-                
                 <?php while ($ing = $ingredientesReceta->fetch_assoc()): ?>
                 <div class="ingrediente-row">
-
                     <select name="ingrediente[]" required>
                         <option value="">Selecciona...</option>
                         <?php
@@ -128,28 +125,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <input type="number" step="0.01" name="cantidad[]" value="<?= $ing["CantidadRequerida"] ?>" required>
 
-                    <button type="button" class="btn-eliminar" onclick="eliminarFila(this)">✖</button>
+                    <button type="button" class="btn-eliminar" onclick="eliminarFila(this)">Eliminar</button>
                 </div>
                 <?php endwhile; ?>
-
             </div>
 
-            <button type="button" class="btn-agregar" onclick="agregarIngrediente()">➕ Agregar Ingrediente</button>
+            <button type="button" class="btn-agregar" onclick="agregarIngrediente()">Agregar Ingrediente</button>
         </div>
 
         <button type="submit" class="btn-guardar">Guardar Cambios</button>
 
         <div class="links">
-            <a href="VerRecetas.php">⟵ Regresar</a>
+            <a href="VerRecetas.php">Volver</a>
         </div>
 
     </form>
 </div>
 
 <script>
-// ============================
-// AGREGAR NUEVA FILA
-// ============================
 function agregarIngrediente() {
     let contenedor = document.getElementById("contenedor-ingredientes");
     let filaOriginal = contenedor.children[0];
@@ -161,12 +154,8 @@ function agregarIngrediente() {
     contenedor.appendChild(copia);
 }
 
-// ============================
-// ELIMINAR FILA
-// ============================
 function eliminarFila(btn) {
     let contenedor = document.getElementById("contenedor-ingredientes");
-
     if (contenedor.children.length > 1) {
         btn.parentElement.remove();
     }

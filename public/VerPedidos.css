@@ -77,9 +77,8 @@ body {
 
 .form-fecha input[type="date"]:focus {
     border-color: #ff66b2;
-    background: #ffe6f2;
     outline: none;
-    box-shadow: 0 0 6px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 0 6px rgba(255,105,180,0.3);
 }
 
 .btn-buscar {
@@ -108,29 +107,37 @@ body {
     box-shadow: 0 4px 12px rgba(255,0,116,0.1);
 }
 
-/* Tabla de ventas */
-.tabla-ventas {
+/* Tabla de pedidos */
+.tabla-pedidos {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
 }
 
-.tabla-ventas th {
+.tabla-pedidos th {
     background: linear-gradient(135deg, #ff66b2, #ff3385);
     color: white;
     padding: 12px;
 }
 
-.tabla-ventas td {
+.tabla-pedidos td {
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #ffb3d9;
 }
 
-.tabla-ventas tr:nth-child(even) {
+.tabla-pedidos tr:nth-child(even) {
     background: #fff2f7;
 }
 
-.tabla-ventas tr:hover {
+.tabla-pedidos tr:hover {
     background: #ffe0ef;
+}
+
+/* Scroll en móviles */
+@media (max-width: 768px) {
+    .tabla-pedidos th, .tabla-pedidos td {
+        padding: 8px;
+        font-size: 13px;
+    }
 }

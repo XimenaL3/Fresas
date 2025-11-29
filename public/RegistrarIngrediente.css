@@ -1,18 +1,14 @@
-/* ===== FONDO ===== */
+/* ===== FONDO ESTILO PINKBERRY PROFESIONAL ===== */
 body {
     margin: 0;
-    padding: 0;
+    padding: 0 0 40px 0;
     font-family: "Poppins", Arial, sans-serif;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(255,182,193,0.85), rgba(255,240,247,0.5), white),
-        radial-gradient(circle at 80% 80%, rgba(255,105,155,0.65), rgba(255,200,220,0.4), white),
-        linear-gradient(135deg, #ff6fa5, #ffc2d7, #ffffff);
-    background-blend-mode: soft-light, overlay, normal;
-
+    background: radial-gradient(circle at 15% 20%, #ffe3f1, #fff1f8, #ffffff),
+                radial-gradient(circle at 85% 80%, #ffd0e4, #ffe7f3, #ffffff);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 /* CONTENEDOR */
@@ -25,78 +21,84 @@ body {
 
 /* CAJA PRINCIPAL */
 .registro-box {
-    background: #ffffffee;
+    background: #ffffffdd;
     padding: 28px;
-    width: 700px;
+    width: 720px;
     border-radius: 20px;
-    border: 2px solid #ff8abd;
-    box-shadow: 0px 10px 28px rgba(255, 110, 160, 0.28);
+    border: 2px solid #f6c7dd;
+    box-shadow: 0px 12px 28px rgba(214,44,112,0.18);
 }
 
 /* TITULO */
 .registro-box h2 {
     text-align: center;
-    color: #ff4f9b;
-    font-size: 26px;
-    margin-bottom: 18px;
+    color: #c2185b;
+    font-size: 28px;
+    font-weight: 900;
+    text-shadow: 0px 2px 8px rgba(194,24,91,0.2);
+    margin-bottom: 20px;
 }
 
-/* SECCION */
+/* SECCIONES */
 .seccion h3 {
     color: #d63384;
-    font-size: 17px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
-/* FILAS */
+/* GRID FILAS */
 .fila {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 /* INPUT GROUP */
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
 }
 
 .input-group label {
     font-weight: 600;
-    color: #d63384;
+    color: #b31259;
     font-size: 14px;
 }
 
 .input-group input,
 .input-group select {
     padding: 10px;
-    border-radius: 10px;
-    border: 2px solid #ffb3d9;
-    background: #fff6fa;
+    border-radius: 12px;
+    border: 2px solid #f6c7dd;
+    background: #fff0f7;
     font-size: 14px;
     transition: 0.25s;
 }
 
-.input-group input:focus {
-    border-color: #ff66b2;
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #ff3385;
     background: #ffe6f2;
     outline: none;
+    box-shadow: 0 0 6px rgba(255, 51, 133, 0.25);
 }
 
 /* ALERTA */
 .alerta {
-    background: #ffe6ed;
-    padding: 12px;
+    background: #ffe2f0;
+    padding: 14px;
     margin-bottom: 18px;
-    border-radius: 10px;
+    border-radius: 12px;
     color: #b30055;
     text-align: center;
     font-size: 14px;
+    box-shadow: 0 4px 12px rgba(255,0,116,0.1);
 }
 
-/* BOTÓN */
+/* BOTÓN GUARDAR */
 .btn-guardar {
     width: 100%;
     padding: 12px;
@@ -107,20 +109,36 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 6px;
+    margin-top: 8px;
+    transition: 0.3s;
 }
 
 .btn-guardar:hover {
     background: linear-gradient(135deg, #ff3385, #ff0073);
+    transform: scale(1.03);
 }
 
-/* LINK */
+/* LINK DE REGRESO */
 .links {
     text-align: center;
-    margin-top: 12px;
+    margin-top: 14px;
 }
 
 .links a {
-    color: #ff4fa3;
+    color: #c2185b;
+    font-weight: 600;
     text-decoration: none;
+    transition: 0.25s;
+}
+
+.links a:hover {
+    color: #ff3385;
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .fila {
+        grid-template-columns: 1fr;
+    }
 }
