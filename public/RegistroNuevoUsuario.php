@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Contrasena = password_hash($_POST["contrasena"], PASSWORD_DEFAULT);
 
     // Rol por defecto = Cliente (3)
-    $Rol = 3;
+    $Rol = 2;
 
     // =======================
     //      MANEJO IMAGEN

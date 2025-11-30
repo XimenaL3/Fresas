@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         header("Location: DashboardAdministradores.php");
                         exit();
                     } 
-                    else if ($row["idRol"] == 3) { 
+                    else if ($row["idRol"] == 2) { 
                         header("Location: DashboardClientes.php");
                         exit();
                     } 

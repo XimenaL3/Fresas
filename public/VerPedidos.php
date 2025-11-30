@@ -2,13 +2,58 @@
 session_start();
 require_once "../includes/conexion.php";
 
-// Fecha por defecto = día actual
+// ===============================
+// PROCESAR ENTREGA DE PEDIDO
+// ===============================
+if (isset($_GET["accion"]) && $_GET["accion"] === "entregar" && isset($_GET["idPersona"])) {
+
+    $idPersona = intval($_GET["idPersona"]);
+    $tipoPago = "Efectivo"; // Puedes cambiarlo si deseas más adelante
+
+    $stmt = $conn->prepare("CALL RegistrarVentaDesdePedido(?, ?)");
+    $stmt->bind_param("is", $idPersona, $tipoPago);
+
+    if ($stmt->execute()) {
+        $mensaje = "Pedido entregado y venta registrada correctamente. 🎉";
+    } else {
+        $mensaje = "Error al entregar pedido: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->next_result();
+}
+
+// ===============================
+// PROCESAR CANCELACIÓN DE PEDIDO
+// ===============================
+if (isset($_GET["accion"]) && $_GET["accion"] === "cancelar" && isset($_GET["idPedido"])) {
+
+    $idPedido = intval($_GET["idPedido"]);
+
+    $stmt = $conn->prepare("CALL CancelarPedido(?)");
+    $stmt->bind_param("i", $idPedido);
+
+    if ($stmt->execute()) {
+        $mensaje = "Pedido cancelado correctamente. ❌";
+    } else {
+        $mensaje = "Error al cancelar pedido: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->next_result();
+}
+
+// ===============================
+// FECHA POR DEFECTO = HOY
+// ===============================
 $fecha = isset($_GET['fecha']) ? $_GET['fecha'] : date("Y-m-d");
 
-$mensaje = "";
 $pedidos = [];
+$mensaje = "";
 
-// Consulta a la vista VistaPedidos
+// ===============================
+// CONSULTA A LA VISTA DE PEDIDOS
+// ===============================
 $sql = "SELECT * FROM VistaPedidos WHERE DATE(Fecha) = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $fecha);
@@ -22,6 +67,7 @@ if ($resultado->num_rows > 0) {
 } else {
     $mensaje = "No hay pedidos para esta fecha";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -47,7 +93,7 @@ if ($resultado->num_rows > 0) {
         <button type="submit" class="btn-buscar">Buscar</button>
     </form>
 
-    <!-- MENSAJE SI NO HAY DATOS -->
+    <!-- MENSAJE -->
     <?php if (!empty($mensaje)) : ?>
         <div class="alerta"><?= $mensaje ?></div>
     <?php endif; ?>
@@ -66,9 +112,11 @@ if ($resultado->num_rows > 0) {
                     <th>Precio Unitario</th>
                     <th>Total</th>
                     <th>Estatus</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
+
                 <?php foreach ($pedidos as $p) : ?>
                 <tr>
                     <td><?= $p["idPedido"] ?></td>
@@ -80,8 +128,33 @@ if ($resultado->num_rows > 0) {
                     <td>$<?= number_format($p["PrecioUnitario"], 2) ?></td>
                     <td>$<?= number_format($p["Total"], 2) ?></td>
                     <td><?= $p["Estatus"] ?></td>
+
+                    <!-- ACCIONES -->
+                    <td>
+                        <?php if ($p["Estatus"] == "Pendiente") : ?>
+
+                            <!-- ENTREGAR -->
+                            <a href="VerPedidos.php?accion=entregar&idPersona=<?= $p['idPersona'] ?>&fecha=<?= $fecha ?>"
+                               class="btn-entregar"
+                               onclick="return confirm('¿Marcar pedido como ENTREGADO y generar venta?')">
+                                Entregar
+                            </a>
+
+                            <!-- CANCELAR -->
+                            <a href="VerPedidos.php?accion=cancelar&idPedido=<?= $p['idPedido'] ?>&fecha=<?= $fecha ?>"
+                               class="btn-cancelar"
+                               onclick="return confirm('¿Cancelar este pedido?')">
+                                Cancelar
+                            </a>
+
+                        <?php else : ?>
+                            <span style="color:#888;">Sin acciones</span>
+                        <?php endif; ?>
+                    </td>
+
                 </tr>
                 <?php endforeach; ?>
+
             </tbody>
         </table>
     <?php endif; ?>

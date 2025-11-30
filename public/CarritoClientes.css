@@ -1,0 +1,248 @@
+/* =======================================
+   🌸 FONDO PINKBERRY PROFESIONAL
+======================================= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+
+    background: radial-gradient(circle at 15% 20%, #ffe3f1, #fff1f8, #ffffff),
+                linear-gradient(120deg, #ffd0e4, #ffe7f3);
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+
+/* =======================================
+   CONTENEDOR PRINCIPAL
+======================================= */
+.contenedor {
+    width: 90%;
+    max-width: 900px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #f6c7dd;
+    padding: 28px;
+    box-shadow: 0px 10px 25px rgba(214, 44, 112, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* =======================================
+   TÍTULO
+======================================= */
+h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 900;
+    color: #c2185b;
+    letter-spacing: 1px;
+    text-shadow: 0px 5px 15px rgba(194, 24, 91, 0.25),
+                 0px 1px 2px rgba(0,0,0,0.12);
+}
+
+/* =======================================
+   MENSAJE DE ALERTA
+======================================= */
+.mensaje {
+    background: #ffe2f0;
+    padding: 14px 20px;
+    border-radius: 12px;
+    color: #b30055;
+    font-size: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(255,0,116,0.25);
+    transition: 0.5s ease;
+}
+
+/* =======================================
+   TEXTO VACÍO
+======================================= */
+.vacio {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+/* =======================================
+   LISTA DE PRODUCTOS
+======================================= */
+.carrito-lista .item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f6c7dd;
+    padding: 16px 0;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0px 8px 18px rgba(214, 44, 112, 0.08);
+}
+
+.carrito-lista .item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0px 12px 28px rgba(214,44,112,0.18);
+}
+
+/* =======================================
+   IMAGEN DEL PRODUCTO
+======================================= */
+.foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 2px solid #f6c7dd;
+    margin-right: 20px;
+}
+
+/* =======================================
+   INFORMACIÓN DEL PRODUCTO
+======================================= */
+.info h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #b31259;
+    font-weight: 600;
+}
+
+.info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #d81b60;
+}
+
+/* =======================================
+   ACCIONES SUMAR / RESTAR
+======================================= */
+.acciones {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-sumar,
+.btn-restar {
+    background: #ff77b7;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-sumar {
+    background: linear-gradient(135deg, #ff66b2, #ff3385);
+}
+
+.btn-restar {
+    background: linear-gradient(135deg, #ff4d6d, #ff003f);
+}
+
+.btn-sumar:hover,
+.btn-restar:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(255,0,116,0.25);
+}
+
+/* =======================================
+   CANTIDAD
+======================================= */
+.cantidad {
+    font-size: 18px;
+    font-weight: bold;
+    width: 30px;
+    text-align: center;
+    color: #b31259;
+}
+
+/* =======================================
+   TOTAL
+======================================= */
+.total {
+    text-align: right;
+    font-size: 22px;
+    font-weight: 700;
+    color: #c2185b;
+    margin-top: 15px;
+}
+
+/* =======================================
+   FORMULARIO DE VENTA
+======================================= */
+.venta-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.venta-form select {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #f6c7dd;
+    font-size: 16px;
+    font-weight: 500;
+    color: #b31259;
+    outline: none;
+    width: 200px;
+}
+
+/* =======================================
+   BOTÓN REALIZAR VENTA
+======================================= */
+.btn-comprar {
+    background: linear-gradient(135deg, #ff66b2, #ff3385);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-comprar:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(255,0,116,0.35);
+}
+
+/* =======================================
+   EFECTO GLOBAL DE ENFOQUE EN ITEMS
+======================================= */
+.carrito-lista:hover .item {
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.carrito-lista .item:hover {
+    opacity: 1;
+    filter: none;
+}
+
+/* BOTÓN ATRÁS */
+.btn-atras {
+    text-decoration: none;
+    background: linear-gradient(135deg, #ff99c1, #ff66b2);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-atras:hover {
+    background: linear-gradient(135deg, #ff66b2, #ff3385);
+}
+

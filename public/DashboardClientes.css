@@ -1,0 +1,291 @@
+/* =======================================================
+   RESET & BASE
+======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #4a3c3c;
+    background: #f8f3f6 url("imagenes/fondo-suave.png") repeat;
+    background-size: 500px;
+    line-height: 1.5;
+}
+
+/* =======================================================
+   NAVBAR
+======================================================= */
+.navbar {
+    width: 100%;
+    background: #ffffffcc;
+    backdrop-filter: blur(12px);
+    padding: 18px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #3b2b2b;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #5a4a4a;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #d64871;
+}
+
+/* =======================================================
+   FLASH MESSAGE
+======================================================= */
+.flash {
+    background: #ffebf2;
+    color: #d03b6f;
+    border-left: 5px solid #d03b6f;
+    padding: 12px 18px;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 6px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* =======================================================
+   CATEGORÍAS
+======================================================= */
+.categories .container {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.categories h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #3b2b2b;
+}
+
+.cat-list {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.cat-btn {
+    background: #ffffffdd;
+    border: 1px solid #e7dce1;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #5a4a4a;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+.cat-btn:hover {
+    background: #fce1eb;
+}
+
+.cat-btn.active {
+    background: #d64871;
+    color: white;
+    border-color: #d64871;
+}
+
+.count {
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+/* =======================================================
+   PRODUCTOS
+======================================================= */
+.section-products {
+    padding: 70px 0;
+    text-align: center;
+}
+
+.section-products h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #3b2b2b;
+}
+
+.product-grid {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 35px;
+}
+
+.product-card {
+    background: #ffffffcc;
+    backdrop-filter: blur(10px);
+    padding: 22px;
+    border-radius: 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+    transition: 0.30s ease;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.product-card h3 {
+    margin-top: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #3b2b2b;
+}
+
+.categoria {
+    font-size: 14px;
+    color: #d64888;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.descripcion {
+    font-size: 14px;
+    color: #6b5b5b;
+    margin-top: 10px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.precio {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3b2b2b;
+}
+
+.btn-agregar {
+    width: 100%;
+    background: #d64871;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 30px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-agregar:hover {
+    background: #b8385d;
+}
+
+/* =======================================================
+   VER MÁS
+======================================================= */
+.ver-mas {
+    margin-top: 35px;
+}
+
+.btn-vermas {
+    display: inline-block;
+    background: #ffffffdd;
+    border: 1px solid #d8c5cc;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #4a3c3c;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.btn-vermas:hover {
+    background: #fce1eb;
+}
+
+.contador {
+    margin-top: 25px;
+    font-size: 16px;
+    color: #6b5b5b;
+}
+
+/* =======================================================
+   FOOTER
+======================================================= */
+.footer {
+    margin-top: 80px;
+    padding: 40px 0;
+    background: #ffffff;
+    border-top: 1px solid #e1d5da;
+}
+
+.footer-grid {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 120px;
+}
+
+.footer-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #3b2b2b;
+}
+
+.footer-box p a {
+    color: #d64871;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-box p a:hover {
+    text-decoration: underline;
+}
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 18px 25px;
+    }
+    
+    .footer-grid {
+        gap: 40px;
+    }
+}

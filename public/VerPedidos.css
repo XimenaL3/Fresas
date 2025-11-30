@@ -134,6 +134,35 @@ body {
     background: #ffe0ef;
 }
 
+.btn-entregar {
+    background: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.btn-entregar:hover {
+    background: #43a047;
+}
+
+.btn-cancelar {
+    background: #e53935;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-cancelar:hover {
+    background: #c62828;
+}
+
 /* Scroll en móviles */
 @media (max-width: 768px) {
     .tabla-pedidos th, .tabla-pedidos td {
